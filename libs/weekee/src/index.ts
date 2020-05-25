@@ -1,1 +1,1 @@
-export * from './lib/weekee';
+export * from './lib/weekee'

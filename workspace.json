@@ -10,15 +10,71 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/weekee/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/weekee/**"]
+            "tsConfig": [
+              "libs/weekee/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/weekee/**"
+            ]
+          }
+        }
+      }
+    },
+    "may-epp": {
+      "root": "apps/may-epp",
+      "sourceRoot": "apps/may-epp/src",
+      "projectType": "application",
+      "prefix": "may-epp",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/may-epp",
+            "main": "apps/may-epp/src/main.ts",
+            "tsConfig": "apps/may-epp/tsconfig.app.json",
+            "assets": [
+              "apps/may-epp/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/may-epp/src/environments/environment.ts",
+                  "with": "apps/may-epp/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "may-epp:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/may-epp/tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/may-epp/**"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/node"
   },
   "schematics": {
     "@nrwl/workspace": {
@@ -78,5 +134,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "defaultProject": "may-epp"
 }
