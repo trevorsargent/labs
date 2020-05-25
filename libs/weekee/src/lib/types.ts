@@ -1,8 +1,11 @@
-type ID = string
+export type ID = string
 
+export type ArticleType = 'standard' | 'redirect' | 'disambiguation'
 export interface Article {
+  type: ArticleType
   id: ID
   name: string
+  linksTo: ID[]
   // category: Category
 }
 
@@ -10,8 +13,3 @@ export interface Article {
 //   id: ID
 //   name: string
 // }
-
-export interface Link {
-  from: Article
-  to: Article
-}
