@@ -27,23 +27,29 @@
   },
   "private": true,
   "dependencies": {
-    "nedb": "^1.8.0"
+    "apollo-server": "^2.13.1",
+    "class-validator": "^0.12.2",
+    "graphql": "^15.0.0",
+    "nedb": "^1.8.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.0.0-rc.2"
   },
   "devDependencies": {
+    "@nrwl/eslint-plugin-nx": "9.3.0",
     "@nrwl/node": "9.3.0",
     "@nrwl/workspace": "9.3.0",
     "@types/faker": "^4.1.12",
+    "@types/nedb": "^1.8.9",
     "@types/node": "~8.9.4",
+    "@typescript-eslint/eslint-plugin": "2.19.2",
+    "@typescript-eslint/parser": "2.19.2",
     "dotenv": "6.2.0",
     "eslint": "6.8.0",
+    "eslint-config-prettier": "6.0.0",
     "faker": "^4.1.0",
     "prettier": "2.0.4",
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
-    "typescript": "~3.8.3",
-    "@nrwl/eslint-plugin-nx": "9.3.0",
-    "@typescript-eslint/parser": "2.19.2",
-    "@typescript-eslint/eslint-plugin": "2.19.2",
-    "eslint-config-prettier": "6.0.0"
+    "typescript": "~3.8.3"
   }
 }
