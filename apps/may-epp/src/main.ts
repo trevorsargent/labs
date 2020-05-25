@@ -1,3 +1,9 @@
 import { initDb } from '@labs/weekee'
+import { startWikiGraphQl } from '@labs/wiki-graphql'
 
-initDb()
+const run = async () => {
+  await initDb()
+  await startWikiGraphQl()
+}
+
+run()
