@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@labs/weekee": ["libs/weekee/src/index.ts"]
+      "@labs/weekee": ["libs/weekee/src/index.ts"],
+      "@labs/wiki-graphql": ["libs/wiki-graphql/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

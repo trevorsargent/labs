@@ -1,3 +1,5 @@
+import db from 'nedb'
+
 export const initDb = async () => {
   console.log(`Filling Database with Wikipedia's dirty dirty garbage...`)
 

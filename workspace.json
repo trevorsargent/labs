@@ -10,13 +10,8 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "libs/weekee/tsconfig.lib.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/weekee/**"
-            ]
+            "tsConfig": ["libs/weekee/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/weekee/**"]
           }
         }
       }
@@ -34,9 +29,7 @@
             "outputPath": "dist/apps/may-epp",
             "main": "apps/may-epp/src/main.ts",
             "tsConfig": "apps/may-epp/tsconfig.app.json",
-            "assets": [
-              "apps/may-epp/src/assets"
-            ]
+            "assets": ["apps/may-epp/src/assets"]
           },
           "configurations": {
             "production": {
@@ -61,13 +54,25 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/may-epp/tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/may-epp/**"
-            ]
+            "tsConfig": ["apps/may-epp/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**", "!apps/may-epp/**"]
+          }
+        }
+      }
+    },
+    "wiki-graphql": {
+      "root": "libs/wiki-graphql",
+      "sourceRoot": "libs/wiki-graphql/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/wiki-graphql/.eslintrc",
+            "tsConfig": ["libs/wiki-graphql/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/wiki-graphql/**"]
           }
         }
       }
