@@ -35,6 +35,7 @@
     "type-graphql": "^1.0.0-rc.2"
   },
   "devDependencies": {
+    "@nrwl/angular": "^9.3.0",
     "@nrwl/eslint-plugin-nx": "9.3.0",
     "@nrwl/node": "9.3.0",
     "@nrwl/workspace": "9.3.0",
