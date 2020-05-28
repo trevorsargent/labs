@@ -76,6 +76,130 @@
           }
         }
       }
+    },
+    "wiki-bacon": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/wiki-bacon",
+      "sourceRoot": "apps/wiki-bacon/src",
+      "prefix": "wiki",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/wiki-bacon",
+            "index": "apps/wiki-bacon/src/index.html",
+            "main": "apps/wiki-bacon/src/main.ts",
+            "polyfills": "apps/wiki-bacon/src/polyfills.ts",
+            "tsConfig": "apps/wiki-bacon/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/wiki-bacon/src/favicon.ico",
+              "apps/wiki-bacon/src/assets"
+            ],
+            "styles": ["apps/wiki-bacon/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/wiki-bacon/src/environments/environment.ts",
+                  "with": "apps/wiki-bacon/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "wiki-bacon:build",
+            "proxyConfig": "apps/wiki-bacon/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "wiki-bacon:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "wiki-bacon:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/wiki-bacon/tsconfig.app.json",
+              "apps/wiki-bacon/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/wiki-bacon/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/wiki-bacon/jest.config.js",
+            "tsConfig": "apps/wiki-bacon/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/wiki-bacon/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "wiki-bacon-e2e": {
+      "root": "apps/wiki-bacon-e2e",
+      "sourceRoot": "apps/wiki-bacon-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/wiki-bacon-e2e/cypress.json",
+            "tsConfig": "apps/wiki-bacon-e2e/tsconfig.e2e.json",
+            "devServerTarget": "wiki-bacon:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "wiki-bacon:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/wiki-bacon-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/wiki-bacon-e2e/**"]
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -138,6 +262,13 @@
       "library": {
         "linter": "eslint"
       }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
     }
   },
   "defaultProject": "may-epp"

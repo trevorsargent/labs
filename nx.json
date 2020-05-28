@@ -27,6 +27,13 @@
     },
     "wiki-graphql": {
       "tags": []
+    },
+    "wiki-bacon": {
+      "tags": []
+    },
+    "wiki-bacon-e2e": {
+      "tags": [],
+      "implicitDependencies": ["wiki-bacon"]
     }
   }
 }
