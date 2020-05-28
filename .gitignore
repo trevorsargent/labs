@@ -40,3 +40,6 @@ Thumbs.db
 
 # Too Big Files
 assets/completeWorldKnowledge.xml
+
+# Database
+db/*

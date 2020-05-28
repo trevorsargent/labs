@@ -4,7 +4,7 @@ import uuid from 'uuid'
 
 type ArticleStub = Pick<Article, 'id' | 'name'>
 
-const article = (): ArticleStub => {
+const makeArticleStub = (): ArticleStub => {
   return {
     //"Name" of article, as seen in url
     id: uuid(),
@@ -26,12 +26,13 @@ function terribleRandomArticleSelector(articles: ArticleStub[]) {
 }
 
 export const mockArticles = (num: number): Article[] => {
-  const articlesNoLinks = new Array(num).map((_) => article())
-  const articlesWithLinks: Article[] = articlesNoLinks.map((a) => ({
+  const articlesNoLinks = new Array(num).fill(1).map((x) => makeArticleStub())
+  const articlesWithLinks: Article[] = articlesNoLinks.map<Article>((a) => ({
     ...a,
     type: 'standard',
-    linksTo: terribleRandomArticleSelector(articlesNoLinks),
-    linksFrom: terribleRandomArticleSelector(articlesNoLinks),
+    linksTo: articlesNoLinks
+      .filter((_) => Math.random() > 0.75)
+      .map((x) => x.id),
   }))
   return articlesWithLinks
 }
