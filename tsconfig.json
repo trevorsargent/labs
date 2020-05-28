@@ -18,7 +18,8 @@
     "paths": {
       "@labs/weekee": ["libs/weekee/src/index.ts"],
       "@labs/wiki-graphql": ["libs/wiki-graphql/src/index.ts"],
-      "@labs/assets": ["assets"]
+      "@labs/assets": ["assets"],
+      "@labs/generated": ["generated"]
     }
   },
   "exclude": ["node_modules", "tmp"]
