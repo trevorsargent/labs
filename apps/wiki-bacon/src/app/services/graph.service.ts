@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { Apollo } from 'apollo-angular'
 import ApolloClient from 'apollo-client'
 
-import createMayEppGraph, { Client } from '@labs/generated/may-epp.client'
+import createMayEppGraph, { Client } from 'generated/may-epp.client'
 
 let proxy: Client | null = null
 
@@ -31,9 +31,9 @@ export class GraphService {
     return this.proxy.refetchQuery
   }
 
-  get mutation() {
-    return this.proxy.mutation
-  }
+  // get mutation() {
+  //   return this.proxy.mutation
+  // }
 
   get watchQuery() {
     return this.proxy.watchQuery
