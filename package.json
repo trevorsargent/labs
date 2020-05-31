@@ -25,7 +25,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
-    "gen:graph": "npx jok graphql-client -e http://localhost:4101 -o ./generated/may-epp.ts"
+    "gen:graph": "npx jok graphql-client -e http://localhost:4101 -o ./generated/may-epp.client.ts"
   },
   "private": true,
   "dependencies": {
