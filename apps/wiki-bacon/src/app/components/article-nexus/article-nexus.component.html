@@ -1,1 +1,4 @@
-<p>article-nexus works!</p>
+<wiki-article-node
+  *ngFor="let article of articles$ | async"
+  [article]="article"
+></wiki-article-node>
