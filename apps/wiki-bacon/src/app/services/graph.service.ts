@@ -8,7 +8,7 @@ let proxy: Client | null = null
 
 export const getProxy = () => proxy
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class GraphService {
   public client: ApolloClient<any>
   private proxy: Client
