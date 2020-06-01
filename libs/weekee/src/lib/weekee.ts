@@ -22,12 +22,13 @@ export const initDb = async (mocks?: number) => {
     console.log('Mocking the backend... haha! stupid backend...')
   }
 
-  const shouldAddMocks = mocks && (await articles()).length < 1
-
-  if (shouldAddMocks) {
+  if (mocks) {
+    context.articles.remove({}, { multi: true }, function (err, numRemoved) {
+      console.log(`Removed ${numRemoved} nodes`)
+    })
     const arts = mockArticles(mocks)
     console.log(`adding ${arts.length} articles`)
-    arts.forEach((a) => context.articles.insert(a))
+    context.articles.insert(arts)
   }
 
   console.log('... and Done')

@@ -10,15 +10,19 @@ import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular'
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { GraphService } from './services/graph.service'
+import { NgxGraphModule } from '@swimlane/ngx-graph'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [AppComponent, ArticleNodeComponent, ArticleNexusComponent],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     ApolloModule,
     HttpLinkModule,
+    NgxGraphModule,
   ],
   providers: [
     GraphService,

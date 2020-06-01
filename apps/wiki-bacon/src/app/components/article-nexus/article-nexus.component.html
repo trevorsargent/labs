@@ -1,4 +1,6 @@
-<wiki-article-node
+<ngx-graph [nodes]="nodes$ | async" [links]="edges$ | async"> </ngx-graph>
+
+<!-- <wiki-article-node
   *ngFor="let article of articles$ | async"
   [article]="article"
-></wiki-article-node>
+></wiki-article-node> -->

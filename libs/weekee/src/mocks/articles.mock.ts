@@ -31,7 +31,7 @@ export const mockArticles = (num: number): Article[] => {
     ...a,
     type: 'standard',
     linksTo: articlesNoLinks
-      .filter((_) => Math.random() > 0.75)
+      .filter((_) => Math.random() > 0.9)
       .map((x) => x.id),
   }))
   return articlesWithLinks
