@@ -1,6 +1,6 @@
 module.exports = {
   name: 'wiki-bacon',
-  preset: '../../jest.config.js',
+  preset: '../../../jest.config.js',
   coverageDirectory: '../../coverage/apps/wiki-bacon',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',

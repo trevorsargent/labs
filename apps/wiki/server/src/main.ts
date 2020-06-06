@@ -1,5 +1,5 @@
-import { initDb } from '@labs/weekee'
-import { startWikiGraphQl } from '@labs/wiki-graphql'
+import { initDb } from '@labs/wiki/map'
+import { startWikiGraphQl } from '@labs/wiki/graphql'
 
 const MOCK_NUM = 10
 
