@@ -11,7 +11,13 @@ import {
   Root,
   Int,
 } from 'type-graphql'
-import { articles, article, Article as A, ID, ArticleType } from '@labs/weekee'
+import {
+  articles,
+  article,
+  Article as A,
+  ID,
+  ArticleType,
+} from '@labs/wiki/map'
 import { ApolloServer } from 'apollo-server'
 
 @ObjectType()

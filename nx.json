@@ -19,21 +19,21 @@
     }
   },
   "projects": {
-    "weekee": {
+    "wiki/map": {
       "tags": []
     },
-    "may-epp": {
+    "wiki/server": {
       "tags": []
     },
-    "wiki-graphql": {
+    "wiki/graphql": {
       "tags": []
     },
-    "wiki-bacon": {
+    "wiki/client": {
       "tags": []
     },
-    "wiki-bacon-e2e": {
+    "wiki/client-e2e": {
       "tags": [],
-      "implicitDependencies": ["wiki-bacon"]
+      "implicitDependencies": ["wiki/client"]
     }
   }
 }

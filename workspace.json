@@ -1,35 +1,35 @@
 {
   "version": 1,
   "projects": {
-    "weekee": {
-      "root": "libs/weekee",
-      "sourceRoot": "libs/weekee/src",
+    "wiki/map": {
+      "root": "libs/wiki/map",
+      "sourceRoot": "libs/wiki/map/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["libs/weekee/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/weekee/**"]
+            "tsConfig": ["libs/wiki/map/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/wiki/map/**"]
           }
         }
       }
     },
-    "may-epp": {
-      "root": "apps/may-epp",
-      "sourceRoot": "apps/may-epp/src",
+    "wiki/server": {
+      "root": "apps/wiki/server",
+      "sourceRoot": "apps/wiki/server/src",
       "projectType": "application",
-      "prefix": "may-epp",
+      "prefix": "wiki/server",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
           "options": {
-            "outputPath": "dist/apps/may-epp",
-            "main": "apps/may-epp/src/main.ts",
-            "tsConfig": "apps/may-epp/tsconfig.app.json",
-            "assets": ["apps/may-epp/src/assets"]
+            "outputPath": "dist/apps/wiki/server",
+            "main": "apps/wiki/server/src/main.ts",
+            "tsConfig": "apps/wiki/server/tsconfig.app.json",
+            "assets": ["apps/wiki/server/src/assets"]
           },
           "configurations": {
             "production": {
@@ -38,8 +38,8 @@
               "inspect": false,
               "fileReplacements": [
                 {
-                  "replace": "apps/may-epp/src/environments/environment.ts",
-                  "with": "apps/may-epp/src/environments/environment.prod.ts"
+                  "replace": "apps/wiki/server/src/environments/environment.ts",
+                  "with": "apps/wiki/server/src/environments/environment.prod.ts"
                 }
               ]
             }
@@ -48,21 +48,21 @@
         "serve": {
           "builder": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "may-epp:build"
+            "buildTarget": "wiki/server:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/may-epp/tsconfig.app.json"],
-            "exclude": ["**/node_modules/**", "!apps/may-epp/**"]
+            "tsConfig": ["apps/wiki/server/tsconfig.app.json"],
+            "exclude": ["**/node_modules/**", "!apps/wiki/server/**"]
           }
         }
       }
     },
-    "wiki-graphql": {
-      "root": "libs/wiki-graphql",
-      "sourceRoot": "libs/wiki-graphql/src",
+    "wiki/graphql": {
+      "root": "libs/wiki/graphql",
+      "sourceRoot": "libs/wiki/graphql/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -70,46 +70,46 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "libs/wiki-graphql/.eslintrc",
-            "tsConfig": ["libs/wiki-graphql/tsconfig.lib.json"],
-            "exclude": ["**/node_modules/**", "!libs/wiki-graphql/**"]
+            "config": "libs/wiki/graphql/.eslintrc",
+            "tsConfig": ["libs/wiki/graphql/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/wiki/graphql/**"]
           }
         }
       }
     },
-    "wiki-bacon": {
+    "wiki/client": {
       "projectType": "application",
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
         }
       },
-      "root": "apps/wiki-bacon",
-      "sourceRoot": "apps/wiki-bacon/src",
+      "root": "apps/wiki/client",
+      "sourceRoot": "apps/wiki/client/src",
       "prefix": "wiki",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/wiki-bacon",
-            "index": "apps/wiki-bacon/src/index.html",
-            "main": "apps/wiki-bacon/src/main.ts",
-            "polyfills": "apps/wiki-bacon/src/polyfills.ts",
-            "tsConfig": "apps/wiki-bacon/tsconfig.app.json",
+            "outputPath": "dist/apps/wiki/client",
+            "index": "apps/wiki/client/src/index.html",
+            "main": "apps/wiki/client/src/main.ts",
+            "polyfills": "apps/wiki/client/src/polyfills.ts",
+            "tsConfig": "apps/wiki/client/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/wiki-bacon/src/favicon.ico",
-              "apps/wiki-bacon/src/assets"
+              "apps/wiki/client/src/favicon.ico",
+              "apps/wiki/client/src/assets"
             ],
-            "styles": ["apps/wiki-bacon/src/styles.scss"],
+            "styles": ["apps/wiki/client/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/wiki-bacon/src/environments/environment.ts",
-                  "with": "apps/wiki-bacon/src/environments/environment.prod.ts"
+                  "replace": "apps/wiki/client/src/environments/environment.ts",
+                  "with": "apps/wiki/client/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -138,65 +138,65 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "wiki-bacon:build",
-            "proxyConfig": "apps/wiki-bacon/proxy.conf.json"
+            "browserTarget": "wiki/client:build",
+            "proxyConfig": "apps/wiki/client/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "wiki-bacon:build:production"
+              "browserTarget": "wiki/client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "wiki-bacon:build"
+            "browserTarget": "wiki/client:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/wiki-bacon/tsconfig.app.json",
-              "apps/wiki-bacon/tsconfig.spec.json"
+              "apps/wiki/client/tsconfig.app.json",
+              "apps/wiki/client/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/wiki-bacon/**"]
+            "exclude": ["**/node_modules/**", "!apps/wiki/client/**"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "apps/wiki-bacon/jest.config.js",
-            "tsConfig": "apps/wiki-bacon/tsconfig.spec.json",
+            "jestConfig": "apps/wiki/client/jest.config.js",
+            "tsConfig": "apps/wiki/client/tsconfig.spec.json",
             "passWithNoTests": true,
-            "setupFile": "apps/wiki-bacon/src/test-setup.ts"
+            "setupFile": "apps/wiki/client/src/test-setup.ts"
           }
         }
       }
     },
-    "wiki-bacon-e2e": {
-      "root": "apps/wiki-bacon-e2e",
-      "sourceRoot": "apps/wiki-bacon-e2e/src",
+    "wiki/client-e2e": {
+      "root": "apps/wiki/client-e2e",
+      "sourceRoot": "apps/wiki/client-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/wiki-bacon-e2e/cypress.json",
-            "tsConfig": "apps/wiki-bacon-e2e/tsconfig.e2e.json",
-            "devServerTarget": "wiki-bacon:serve"
+            "cypressConfig": "apps/wiki/client-e2e/cypress.json",
+            "tsConfig": "apps/wiki/client-e2e/tsconfig.e2e.json",
+            "devServerTarget": "wiki/client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "wiki-bacon:serve:production"
+              "devServerTarget": "wiki/client:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/wiki-bacon-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/wiki-bacon-e2e/**"]
+            "tsConfig": ["apps/wiki/client-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/wiki/client-e2e/**"]
           }
         }
       }
@@ -271,5 +271,5 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "may-epp"
+  "defaultProject": "wiki/server"
 }
