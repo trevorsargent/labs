@@ -48,7 +48,8 @@
         "serve": {
           "builder": "@nrwl/node:execute",
           "options": {
-            "buildTarget": "wiki/server:build"
+            "buildTarget": "wiki/server:build",
+            "port": 9876
           }
         },
         "lint": {

@@ -12,7 +12,7 @@ import {
   Int,
 } from 'type-graphql'
 import {
-  articles,
+  articlesFUNC as articles,
   article,
   Article as A,
   ID,
